@@ -34,3 +34,7 @@ spam_model = LogisticRegression(solver='liblinear', penalty='l1')
 spam_model.fit(X_train, Y_train)
 predictions = spam_model.predict(x_test)
 print(accuracy_score(y_test, predictions))
+
+test = vectorizer.transform( ['URGENT! Your Mobile No 1234 was awarded a Prize', 'Hey honey, whats up?'] )
+test_pred = spam_model.predict(test)
+print(test_pred)
