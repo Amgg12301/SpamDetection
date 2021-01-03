@@ -8,6 +8,8 @@ from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
+from sklearn.pipeline import Pipeline
+from joblib import dump
 
 spam_data = pd.read_csv('spam.csv', encoding='latin', engine='python')
 
@@ -29,11 +31,21 @@ vectorized_data = vectorizer.fit_transform(spam_data_copy)
 
 X_train, x_test, Y_train, y_test = train_test_split(vectorized_data, spam_data['Spam/Not'], random_state=42)
 
-spam_model = LogisticRegression(solver='liblinear', penalty='l1')
+spam_model = LogisticRegression(solver='liblinear', penalty='l1', random_state=42)
 spam_model.fit(X_train, Y_train)
 predictions = spam_model.predict(x_test)
-print(accuracy_score(y_test, predictions))
+print("Spam Classification Model's Accuracy: {}%".format(accuracy_score(y_test, predictions) * 100))
 
-test = vectorizer.transform( ['URGENT! Your Mobile No 1234 was awarded a Prize', 'Hey honey, whats up?'] )
+test = vectorizer.transform(['URGENT! Your Mobile No 1234 was awarded a Prize', 'Hello, your bank payment is due soon!'])
 test_pred = spam_model.predict(test)
 print(test_pred)
+
+pipeline = Pipeline(steps= [('tfidf', TfidfVectorizer()), 
+                            ('model', LogisticRegression(solver='liblinear', penalty='l1', random_state=42))])
+pipeline.fit(spam_data_copy, spam_data['Spam/Not'])
+
+pipeline_test = ['URGENT! Your Mobile No 1234 was awarded a Prize', 'Hello, your bank payment is due soon!']
+pipeline_pred = pipeline.predict(pipeline_test)
+print(pipeline_pred)
+
+dump(pipeline, filename="spam_classification.joblib")
