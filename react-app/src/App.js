@@ -3,17 +3,18 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 
 function App() {
-  const [placeholder, setPlaceholder] = useState('');
+  const [placeholder, setPlaceholder] = useState('I do not know');
 
   useEffect(() => {
     fetch("/results", {
-      method:"POST",
+      method: "POST",
       cache: "no-cache",
-      headers:{
+      headers: {
           "content_type":"application/json",
       },
-      body:JSON.stringify(placeholder)
+      body: JSON.stringify('URGENT! Your Mobile No 1234 was awarded a Prize')
     }).then(res => res.json()).then(data => {
+      console.log(data);
       setPlaceholder(data.result);
     });
   }, [placeholder]);
