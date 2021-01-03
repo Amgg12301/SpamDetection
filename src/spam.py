@@ -27,8 +27,7 @@ spam_data_copy = spam_data_copy.apply(preprocess)
 vectorizer = TfidfVectorizer()
 vectorized_data = vectorizer.fit_transform(spam_data_copy)
 
-X_train, x_test, Y_train, y_test = train_test_split(vectorized_data, spam_data['Spam/Not'], 
-                                                    test_size=0.3, random_state=20)
+X_train, x_test, Y_train, y_test = train_test_split(vectorized_data, spam_data['Spam/Not'], random_state=42)
 
 spam_model = LogisticRegression(solver='liblinear', penalty='l1')
 spam_model.fit(X_train, Y_train)
