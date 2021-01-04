@@ -3,7 +3,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 
 function App() {
-  const [placeholder, setPlaceholder] = useState('I do not know');
+  const [type, setType] = useState('N/A');
 
   useEffect(() => {
     fetch("/results", {
@@ -13,11 +13,13 @@ function App() {
           "content_type":"application/json",
       },
       body: JSON.stringify('URGENT! Your Mobile No 1234 was awarded a Prize')
-    }).then(res => res.json()).then(data => {
+    })
+    .then(res => res.json())
+    .then(data => {
       console.log(data);
-      setPlaceholder(data.result);
+      setType(data.result);
     });
-  }, [placeholder]);
+  }, [type]);
   
   return (
     <div className="App">
@@ -34,7 +36,9 @@ function App() {
         >
           Learn React
         </a>
-        <p>Flask says that 'URGENT! Your Mobile No 1234 was awarded a Prize' is {placeholder}</p>
+        <TextBox />
+        <p>Flask says that 'URGENT! Your Mobile No 1234 was awarded a Prize' is {type}</p>
+        <Result state={type} />
       </header>
     </div>
   );
