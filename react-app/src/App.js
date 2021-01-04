@@ -1,6 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import TextBox from './TextBox.js';
+import Result from './Result.js';
 
 function App() {
   const [type, setType] = useState('N/A');
@@ -23,23 +24,10 @@ function App() {
   
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <TextBox />
-        <p>Flask says that 'URGENT! Your Mobile No 1234 was awarded a Prize' is {type}</p>
-        <Result state={type} />
-      </header>
+      <h1>Let's Fight Spam Together!</h1>
+      <TextBox />
+      <p>Flask says that 'URGENT! Your Mobile No 1234 was awarded a Prize' is {type}</p>
+      <Result state={type} />
     </div>
   );
 }
