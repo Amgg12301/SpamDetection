@@ -1,13 +1,13 @@
 import React, { useState } from "react";
+import Result from './Result.js';
 
 function TextBox(){
     const [input, setInput] = useState('');
+    const [type, setType] = useState('');
 
-    const onChange = (event) => {
-        setInput(event.target.value);
-    };
-
-   /* const onSubmit = () => {
+   const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(input);
         fetch("/results", {
             method: "POST",
             cache: "no-cache",
@@ -20,16 +20,16 @@ function TextBox(){
           .then(data => {
             console.log(data);
             setType(data.result);
-          });
-    }*/
-
+        });
+    }
 
     return (
         <div className="textbox">
-            <form>
-                <input type="text" value={input} onChange={onChange} placeholder="Start typing here"/>
-                <input type="submit" value="Check for Spam" /*onSubmit={onSubmit}*//>
+            <form onSubmit={handleSubmit}>
+                <input type="text" value={input} onChange={event => setInput(event.target.value)} placeholder="Start typing here"/>
+                <input type="submit" value="Check for Spam"/>
             </form>
+            <Result type={type} />
         </div>
     );
 }
