@@ -8,10 +8,6 @@ from spam import score
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/home')
-def homepage():
-    return {'result': "Hello World"}
-
 @app.route('/results', methods = ['POST'])
 def spamClassify():
     text = request.get_json()

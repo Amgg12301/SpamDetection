@@ -5,7 +5,7 @@ import { Form, Button} from 'react-bootstrap';
 function TextBox(){
     const [input, setInput] = useState('');
     const [type, setType] = useState('');
-    const [score, setScore] = useState(0);
+    const [score, setScore] = useState(94.67703349282297);
 
    const validateInput = () => {
        if(input === ''){
