@@ -12,8 +12,6 @@ from sklearn.metrics import accuracy_score
 from sklearn.pipeline import Pipeline
 from joblib import dump
 
-nltk.download('stopwords')
-
 # clean up data set
 spam_data = pd.read_csv('spam.csv', encoding='latin', engine='python')
 
