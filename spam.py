@@ -26,15 +26,26 @@ def preprocess(text):
 
 spam_data_copy = spam_data_copy.apply(preprocess)
 
+def stemming(text):
+    text = text.split()
+    words = ""
+    for i in text:
+            stemmer = SnowballStemmer("english")
+            words += (stemmer.stem(i)) + " "
+    return words
+
+spam_data_copy = spam_data_copy.apply(stemming)
+
 vectorizer = TfidfVectorizer()
 vectorized_data = vectorizer.fit_transform(spam_data_copy)
 
-X_train, x_test, Y_train, y_test = train_test_split(vectorized_data, spam_data['Spam/Not'], random_state=42)
+X_train, x_test, Y_train, y_test = train_test_split(vectorized_data, spam_data['Spam/Not'], test_size=0.3, random_state=42)
 
 spam_model = LogisticRegression(solver='liblinear', penalty='l1', random_state=42)
 spam_model.fit(X_train, Y_train)
 predictions = spam_model.predict(x_test)
-print("Spam Classification Model's Accuracy: {}%".format(accuracy_score(y_test, predictions) * 100))
+score = accuracy_score(y_test, predictions) * 100
+print("Spam Classification Model's Accuracy: {}%".format(score))
 
 test = vectorizer.transform(['URGENT! Your Mobile No 1234 was awarded a Prize', 'Hello, your bank payment is due soon!'])
 test_pred = spam_model.predict(test)

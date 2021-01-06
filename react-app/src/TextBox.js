@@ -5,6 +5,7 @@ import { Form, Button} from 'react-bootstrap';
 function TextBox(){
     const [input, setInput] = useState('');
     const [type, setType] = useState('');
+    const [score, setScore] = useState(0);
 
    const validateInput = () => {
        if(input === ''){
@@ -28,16 +29,13 @@ function TextBox(){
           .then(data => {
             console.log(data);
             setType(data.result);
+            setScore(data.accuracy_score);
         });
     }
 
     return (
         <div className="inner">
             <div className="textbox">
-                {/*<form onSubmit={handleSubmit}>
-                    <input type="text" value={input} onChange={event => setInput(event.target.value)} placeholder="Start typing here"/>
-                    <input type="submit" value="Check for Spam"/>
-                </form>*/}
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="exampleForm.ControlTextarea1">
                         <h2>Enter your message:</h2>
@@ -56,12 +54,11 @@ function TextBox(){
             <div className = "result">
                 <Result type={type} />
             </div>
+            <div className="score">
+                <p>Spam Classification Model Accuracy Score: {score}%</p>
+            </div>
         </div>
     );
 }
 
 export default TextBox;
-
-// Need to create state for TextBox
-// On submit in TextBox, we call fetch with the inputted message
-// With output from Flask, we call Results with message to display
