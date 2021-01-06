@@ -1,6 +1,8 @@
 body {
-  background-image: linear-gradient(to right, rgb(12, 228, 243), rgb(15, 135, 233));;
+  background-image: url("background_spam.jpg");
+  background-size: cover;
   font-family: Verdana;
+  color: antiquewhite;
 }
 
 .header {
