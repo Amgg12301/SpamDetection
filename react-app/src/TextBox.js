@@ -33,15 +33,15 @@ function TextBox(){
                 </form>*/}
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <h3>Enter your message:</h3>
+                        <h2>Enter your message:</h2>
                         <Form.Control 
                             as="textarea"
-                            rows={10}
+                            rows={25}
                             value={input} 
                             placeholder="Start typing here..."
                             onChange={event => setInput(event.target.value)}></Form.Control>
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button size="lg" variant="primary" type="submit">
                         Check it out!
                     </Button>
                 </Form>

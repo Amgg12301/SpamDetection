@@ -1,15 +1,16 @@
-.app{
-  background-image: linear-gradient(yellow, orange);
+body {
+  background-image: linear-gradient(to right, rgb(6, 243, 243), rgb(45, 219, 59));;
+  font-family: Verdana;
 }
 
 .header {
   text-align: center;
-
 }
 
 .textbox {
-  background-color: #ff2cc0;
   position: absolute;
+  top: 150px;
+  bottom: 150px;
   left: 100px;
   width: 40%;
   text-align: center;
@@ -17,9 +18,15 @@
 
 .result {
   position: absolute;
+  top: 140px;
+  bottom: 150px;
   right: 100px;
   width: 50%;
-  background-color: #1eb644;
   text-align: center;
+}
+
+textarea {
+  width: 500px;
+  resize: none;
 }
 

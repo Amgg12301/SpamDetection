@@ -15,7 +15,7 @@ function Result(props){
     return (
         <div className="result">
             <h2>What type of message is this?</h2>
-            <p>{message}</p>
+            <p><u>{message}</u></p>
             <p font-size="150%">{emoji}</p>
         </div>
     );
