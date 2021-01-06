@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Result from './Result.js';
+import { Form, Button} from 'react-bootstrap';
 
 function TextBox(){
     const [input, setInput] = useState('');
@@ -24,12 +25,30 @@ function TextBox(){
     }
 
     return (
-        <div className="textbox">
-            <form onSubmit={handleSubmit}>
-                <input type="text" value={input} onChange={event => setInput(event.target.value)} placeholder="Start typing here"/>
-                <input type="submit" value="Check for Spam"/>
-            </form>
-            <Result type={type} />
+        <div className="inner">
+            <div className="textbox">
+                {/*<form onSubmit={handleSubmit}>
+                    <input type="text" value={input} onChange={event => setInput(event.target.value)} placeholder="Start typing here"/>
+                    <input type="submit" value="Check for Spam"/>
+                </form>*/}
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group controlId="exampleForm.ControlTextarea1">
+                        <h3>Enter your message:</h3>
+                        <Form.Control 
+                            as="textarea"
+                            rows={10}
+                            value={input} 
+                            placeholder="Start typing here..."
+                            onChange={event => setInput(event.target.value)}></Form.Control>
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Check it out!
+                    </Button>
+                </Form>
+            </div>
+            <div className = "result">
+                <Result type={type} />
+            </div>
         </div>
     );
 }

@@ -1,15 +1,25 @@
-.App {
-  
+.app{
+  background-image: linear-gradient(yellow, orange);
 }
 
-.TextBox {
-  vertical-align: middle;
-  position: absolute;
-  left: 50px;
+.header {
+  text-align: center;
+
 }
 
-.Result {
-  vertical-align: middle;
+.textbox {
+  background-color: #ff2cc0;
   position: absolute;
-  right: 50px;
+  left: 100px;
+  width: 40%;
+  text-align: center;
 }
+
+.result {
+  position: absolute;
+  right: 100px;
+  width: 50%;
+  background-color: #1eb644;
+  text-align: center;
+}
+

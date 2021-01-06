@@ -5,10 +5,10 @@ function Result(props){
     let emoji = '🤔';
 
     if(props.type === 'ham'){
-        message = 'This is HAM aka not spam :)';
+        message = 'This is HAM aka not spam!';
         emoji = '🤩';
     }else if(props.type === 'spam'){
-        message = 'This is SPAM, please be careful :(';
+        message = 'This is SPAM, please be careful!!';
         emoji = '😡';
     }
 
@@ -16,7 +16,7 @@ function Result(props){
         <div className="result">
             <h2>What type of message is this?</h2>
             <p>{message}</p>
-            <p>{emoji}</p>
+            <p font-size="150%">{emoji}</p>
         </div>
     );
 }

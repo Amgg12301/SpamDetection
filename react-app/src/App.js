@@ -4,8 +4,10 @@ import TextBox from './TextBox.js';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Let's Fight Spam Together!</h1>
+    <div className="app">
+      <div className="header">
+        <h1>Let's Fight Spam Messages Together!</h1>
+      </div>
       <TextBox />
     </div>
   );
