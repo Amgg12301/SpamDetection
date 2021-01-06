@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(to right, rgb(6, 243, 243), rgb(45, 219, 59));;
+  background-image: linear-gradient(to right, rgb(12, 228, 243), rgb(15, 135, 233));;
   font-family: Verdana;
 }
 
@@ -18,15 +18,40 @@ body {
 
 .result {
   position: absolute;
-  top: 140px;
-  bottom: 150px;
+  top: 115px;
+  bottom: 250px;
   right: 100px;
   width: 50%;
   text-align: center;
+  border-color: black;
 }
 
 textarea {
-  width: 500px;
+  width: 600px;
+  font-size: 16px;
   resize: none;
+}
+
+.message {
+  font-size: 20px;
+}
+
+.emoji {
+  margin: auto;
+  font-size: 100px;
+}
+
+.submitButton {
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  margin-top: 15px;
+  border-radius: 45%;
+  background-color: rgb(209, 207, 204);
+}
+
+.submitButton:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  background-color:rgb(174, 179, 179);
 }
 

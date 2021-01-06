@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Result(props){
-    let message = 'Input a message to see magic!';
+    let message = 'Input a message to see the magic!';
     let emoji = '🤔';
 
     if(props.type === 'ham'){
@@ -15,8 +15,8 @@ function Result(props){
     return (
         <div className="result">
             <h2>What type of message is this?</h2>
-            <p><u>{message}</u></p>
-            <p font-size="150%">{emoji}</p>
+            <p className="emoji">{emoji}</p>
+            <p className="message">{message}</p>
         </div>
     );
 }

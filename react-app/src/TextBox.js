@@ -6,8 +6,15 @@ function TextBox(){
     const [input, setInput] = useState('');
     const [type, setType] = useState('');
 
+   const validateInput = () => {
+       if(input === ''){
+            alert('Must be a non-empty message!');
+       }
+   }
+
    const handleSubmit = (event) => {
         event.preventDefault();
+        validateInput();
         console.log(input);
         fetch("/results", {
             method: "POST",
@@ -36,12 +43,12 @@ function TextBox(){
                         <h2>Enter your message:</h2>
                         <Form.Control 
                             as="textarea"
-                            rows={25}
+                            rows={20}
                             value={input} 
                             placeholder="Start typing here..."
                             onChange={event => setInput(event.target.value)}></Form.Control>
                     </Form.Group>
-                    <Button size="lg" variant="primary" type="submit">
+                    <Button className="submitButton" size="lg" variant="primary" type="submit">
                         Check it out!
                     </Button>
                 </Form>
