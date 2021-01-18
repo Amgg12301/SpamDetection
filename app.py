@@ -5,7 +5,7 @@ from flask import request
 from joblib import load
 from spam import score
 
-app = Flask(__name__, static_folder='./build')
+app = Flask(__name__, static_folder='./build', static_url_path='/')
 CORS(app)
 
 @app.route('/')
